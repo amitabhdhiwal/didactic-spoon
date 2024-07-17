@@ -4,16 +4,16 @@ services:
   api:
     image: node:21-alpine3.17
     volumes:
-      - ./src:/app
+      - .:/app
     working_dir: "/app"
-    command: node server.mjs
+    command: node src/server.js
     ports:
       - 3030:3030
   mongo:
     image: mongo:6.0.5
     restart: no
     volumes:
-      - ./data/db:/data/db:rw
+      - ../one2ten-data/db:/data/db:rw
     environment:
       MONGO_INITDB_ROOT_USERNAME: test
       MONGO_INITDB_ROOT_PASSWORD: test
