@@ -20,6 +20,10 @@ jobs:
     - name: Rename .env.sample file to .env
       run: mv .env.sample .env
 
+    #run mongodb and sleep for 1m
+    - name: Start services
+      run: docker-compose up -d mongo && sleep 1m
+    
     - name: Run tests in containers
       run: docker-compose run --rm test npm install && npm test
 
