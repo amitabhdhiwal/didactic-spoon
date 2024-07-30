@@ -11,8 +11,6 @@ services:
       - 3030:3030
     depends_on:
       - mongo
-    networks:
-    - oneten
   test:
     image: node:21-alpine3.17
     volumes:
@@ -21,8 +19,6 @@ services:
     command: npm run test
     depends_on:
       - mongo
-    networks:
-    - oneten
   mongo:
     image: mongo:6.0.5
     volumes:
@@ -31,12 +27,6 @@ services:
       MONGO_INITDB_ROOT_USERNAME: test
       MONGO_INITDB_ROOT_PASSWORD: test
       MONGO_INITDB_DATABASE: test
-    networks:
-    - oneten
 
 volumes:
   db:
-
-networks:
-  oneten:
-    driver: bridge
