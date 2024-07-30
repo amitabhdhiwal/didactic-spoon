@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/tests/*.js --exit",
+    "test:watch": "nodemon --exec 'npm test'"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,13 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "feathers-mongoose": "^8.5.1",
+    "lodash": "^4.17.21",
     "mongoose": "^8.5.1"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.7.0",
+    "nodemon": "^3.1.4",
+    "supertest": "^7.0.0"
   }
 }
