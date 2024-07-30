@@ -21,7 +21,6 @@ services:
       - mongo
   mongo:
     image: mongo:6.0.5
-    restart: no
     volumes:
       - ../one2ten-data/db:/data/db:rw
     environment:
