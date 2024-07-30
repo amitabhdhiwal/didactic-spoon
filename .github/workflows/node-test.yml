@@ -9,17 +9,17 @@ on:
 jobs:
   docker-compose:
     runs-on: ubuntu-latest
-    services:
-      mongo:
-        image: mongo:6.0.5
-        ports:
-          - 27017:27017
-        options: >-
-          --health-cmd "mongosh --eval 'db.runCommand({ ping: 1 })'"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     steps:
+    
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.11.0
+      with:
+        mongodb-version: 6.0.5
+        mongodb-port: 27017
+        mongodb-db: test
+        mongodb-username: test
+        mongodb-password: test
+
     - name: Checkout code
       uses: actions/checkout@v2
 
