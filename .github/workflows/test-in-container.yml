@@ -22,7 +22,7 @@ jobs:
 
     #run mongodb and sleep for 1m
     - name: Start services
-      run: docker-compose up -d mongo && sleep 1m
+      run: docker-compose up -d mongo && sleep 2m
     
     - name: Run tests in containers
       run: docker-compose run --rm test npm install && npm test
