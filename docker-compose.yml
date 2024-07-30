@@ -6,9 +6,19 @@ services:
     volumes:
       - .:/app
     working_dir: "/app"
-    command: node src/server.js
+    command: npx nodemon src/server.js
     ports:
       - 3030:3030
+    depends_on:
+      - mongo
+  test:
+    image: node:21-alpine3.17
+    volumes:
+      - .:/app
+    working_dir: "/app"
+    command: npm run test
+    depends_on:
+      - mongo
   mongo:
     image: mongo:6.0.5
     restart: no
